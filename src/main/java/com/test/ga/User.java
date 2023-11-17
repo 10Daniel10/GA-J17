@@ -2,21 +2,32 @@ package com.test.ga;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import java.util.Properties;
+
+import java.io.IOException;
 import java.io.InputStream;
+import java.util.Properties;
 
 @RestController
 public class User {
 
-Properties prop = new Properties();
-InputStream input = Main.class.getClassLoader().getResourceAsStream("application.properties");
-prop.load(input);
+    private Properties prop = new Properties();
+    private String name;
+    private String surename;
 
-String name = prop.getProperty("nombre");
-String surename = prop.getProperty("apellido");
+    public User() {
+        try {
+            InputStream input = getClass().getClassLoader().getResourceAsStream("application.properties");
+            prop.load(input);
+
+            name = prop.getProperty("nombre");
+            surename = prop.getProperty("apellido");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @GetMapping("/user")
-    public String saludo(){
+    public String saludo() {
         return name + surename;
     }
 }
