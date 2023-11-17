@@ -9,10 +9,10 @@ public class User {
 
 Properties prop = new Properties();
 String name = prop.getProperty("nombre");
-String apellido = prop.getProperty("apellido");
+String surename = prop.getProperty("apellido");
 
     @GetMapping("/user")
     public String saludo(){
-        return nombre + apellido;
+        return name + surename;
     }
 }
