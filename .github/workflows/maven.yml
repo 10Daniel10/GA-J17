@@ -4,7 +4,9 @@ run-name: ¡Desplegando Backend!
 on:
   push:
     branches: [ "main" ]
-
+env:
+        nombre: ${{ secrets.NOMBRE }}
+        apellido: ${{ vars.APELLIDO }}
 jobs:
   build:
 
@@ -29,8 +31,6 @@ jobs:
           echo ${{ vars.APELLIDO }}
     - name: Build with Maven
       run: mvn -B package --file /home/ubuntu/actions-runner/_work/GA-J17/GA-J17/pom.xml
-      env:
-        nombre: ${{ secrets.NOMBRE }}
-        apellido: ${{ vars.APELLIDO }}
+      
     - name: Execute Jar File
       run: sudo kill -9 `sudo lsof -t -i:80` & sudo java -jar /home/ubuntu/actions-runner/_work/GA-J17/GA-J17/target/ga-0.0.1-SNAPSHOT.jar &
