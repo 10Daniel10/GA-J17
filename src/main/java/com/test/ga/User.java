@@ -39,7 +39,7 @@ public class User {
 
     @GetMapping("/user")
     public String saludo() {
-        return name + " " + surename;
+        return name + "  " + surename;
     }
 }
 */
