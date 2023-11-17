@@ -7,6 +7,7 @@ import java.util.Properties;
 @RestController
 public class User {
 
+Properties prop = new Properties();
 String name = prop.getProperty("nombre");
 String apellido = prop.getProperty("apellido");
 
