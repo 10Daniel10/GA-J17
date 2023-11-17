@@ -24,7 +24,7 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file /home/ubuntu/actions-runner/_work/GA-J17/GA-J17/pom.xml
       env:
-        NOMBRE: ${{ secrets.NOMBRE }}
-        APELLIDO: ${{ vars.NOMBRE }}
+        nombre: ${{ secrets.NOMBRE }}
+        apellido: ${{ vars.NOMBRE }}
     - name: Execute Jar File
       run: sudo kill -9 `sudo lsof -t -i:80` & sudo java -jar /home/ubuntu/actions-runner/_work/GA-J17/GA-J17/target/ga-0.0.1-SNAPSHOT.jar &
