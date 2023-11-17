@@ -9,7 +9,7 @@ import java.io.InputStream;
 public class User {
 
 Properties prop = new Properties();
-InputStream input = Main.class.getClassLoader().getResourceAsStream("config.properties");
+InputStream input = Main.class.getClassLoader().getResourceAsStream("application.properties");
 prop.load(input);
 
 String name = prop.getProperty("nombre");
