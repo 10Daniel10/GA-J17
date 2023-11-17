@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-/*@RestController
+@RestController
 public class User {
 
     private Properties prop = new Properties();
@@ -30,8 +30,8 @@ public class User {
     public String saludo() {
         return name + surename;
     }
-}*/
-@RestController
+}
+/*@RestController
 public class User {
 
     private String name = System.getenv("nombre");
@@ -42,3 +42,4 @@ public class User {
         return name + " " + surename;
     }
 }
+*/
