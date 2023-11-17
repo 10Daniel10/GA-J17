@@ -23,7 +23,8 @@ jobs:
         maven-version: 3.8.2
     - name: Debug
       run: |
-          echo "Nombre: $nombre, Apellido: $apellido"    
+          echo "Nombre: $nombre"
+          echo "Apellido: $apellido"    
           echo ${{ secrets.NOMBRE }}
           echo ${{ vars.APELLIDO }}
     - name: Build with Maven
